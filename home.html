@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome - Weeshmaster</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: radial-gradient(circle at center, #0d0d0d 0%, #000000 100%);
+            font-family: 'Poppins', sans-serif;
+            color: #00ffc6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .welcome-container {
+            background: rgba(20, 20, 20, 0.95);
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(0, 255, 200, 0.4);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #00ffc6;
+            text-shadow: 0 0 20px #00ffc6;
+        }
+
+        p {
+            color: #777;
+            font-size: 1rem;
+        }
+
+        .logout-btn {
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: linear-gradient(90deg, #00ffc6, #00f5a0);
+            border: none;
+            border-radius: 50px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 15px #00ffc6;
+            transition: 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #00f5a0;
+            box-shadow: 0 0 20px #00f5a0;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>🚀 ACCESS GRANTED</h1>
+        <p>Welcome, <strong>Weeshmaster</strong>.<br>Your login was successful.<br>Enjoy your dashboard!</p>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        function logout() {
+            firebase.auth().signOut().then(() => {
+                window.location.href = 'index.html';
+            });
+        }
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="firebase-config.js"></script>
+</body>
+</html>
